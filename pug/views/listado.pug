@@ -1,0 +1,25 @@
+extends layouts/main.pug
+
+block listado
+    div(class="jumbotron")
+    h2(class="display-4") Listado de Productos 
+    button(type="button" class="btn btn-primary btn-lg" onclick="window.location='/';" )
+        span(class="glyphicon glyphicon-floppy-disk" aria-hidden="true") Registrar Producto Nuevo
+    div(style="max-height: 400px; overflow: auto;")
+        table(class="table table-striped")
+            thead
+                tr
+                    th(scope="col") Title
+                    th(scope="col") Price
+                    th(scope="col") Thumbnail
+            tbody
+                each obj in productos 
+                    tr 
+                        td(class="col-6") !{obj.title}
+                        td(class="col-2") !{obj.price}
+                        td 
+                            div(style="height: 100px;")
+                                img(src=obj.thumbnail class="rounded mh-100" alt="...")
+        
+
+
